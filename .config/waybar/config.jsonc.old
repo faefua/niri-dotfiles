@@ -1,0 +1,133 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "mod": "dock",
+  "fixed-center": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
+  "modules-left": ["niri/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "tray",
+    "clock",
+    "custom/notification",
+  ],
+
+  "niri/workspaces": {
+    "format": "{value}",
+    "disable-markup": false,
+  },
+
+  "network": {
+    "interval": 1,
+    "format": "{icon}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "",
+    "format-disconnected": "󱘖",
+    "format-disabled": "󰤭",
+    "on-click": "kitty bash -c nmtui-connect",
+    "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
+    "tooltip": false,
+  },
+
+  "bluetooth": {
+    "format-disabled": "",
+    "format-connected": "󰂱",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "tooltip": false,
+    "on-click": "kitty bash -c bluetui",
+    "on-click-right": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; sleep 1; dev=$(bluetoothctl devices | grep -m1 Device | awk \"{print \\$2}\"); [ -n \"$dev\" ] && bluetoothctl connect $dev; fi'",
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-muted": " {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", "", "", "", "", "", "", "", ""],
+    },
+    "states": {
+      "normal": 40,
+      "warning": 100,
+      "critical": 150,
+    },
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
+    "tooltip": false,
+  },
+
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 10,
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "full": [""],
+      "charging": [""],
+      "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "tooltip": false,
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:>%I:%M %p     \n %a, %m/%d/%Y}",
+    "interval": 1,
+    "align": 1,
+    "justify": "right",
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8,
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+    "tooltip": false,
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": " {used} GiB",
+    "tooltip": false,
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#eb6f92'></span>",
+      "none": "<span foreground='#e0def4'></span>",
+      "dnd-notification": "<span foreground='#908caa'></span>",
+      "dnd-none": "<span foreground='#6e6a86'></span>",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": false,
+  },
+}

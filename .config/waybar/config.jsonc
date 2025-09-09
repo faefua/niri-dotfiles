@@ -39,7 +39,7 @@
     "format": "WLA",
     "format-ethernet": "ETH",
     "format-disconnected": "N/A",
-    "on-click": "kitty bash -c nmtui-connect",
+    "on-click": "foot bash -c nmtui-connect",
     "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
     "tooltip": false,
   },

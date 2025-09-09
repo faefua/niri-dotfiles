@@ -24,7 +24,7 @@ input {
       // tap-button-map "left-middle-right"
       // click-method "clickfinger"
       // left-handed
-      // disabled-on-external-mouse
+      disabled-on-external-mouse
       // middle-emulation
     }
 
@@ -101,10 +101,11 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "fcitx5"
 spawn-at-startup "swaybg" "-i" "/home/neifua/Pictures/Wallpapers/MC_snow.jpg"
-spawn-at-startup "swaync"
+spawn-at-startup "dunst"
 spawn-at-startup "sh" "/home/neifua/.config/swayidle/autolock.sh"
 spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "swayosd-server"
+spawn-sh-at-startup "/home/neifua/.config/battmon/battmon.sh"
 
 prefer-no-csd
 
@@ -153,11 +154,11 @@ hotkey-overlay {
 
 animations {
     // off
-    slowdown 0.7
+    slowdown 0.5
 }
 
 // window-rule {
-//   match app-id="kitty"
+//   match app-id="foot"
 //   default-column-width { proportion 0.35; }
 //   default-window-height { proportion 0.5; }
 //   open-floating true
@@ -229,11 +230,11 @@ layer-rule {
 binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Q repeat=false          { spawn "kitty"; }
-    Mod+E repeat=false          { spawn "kitty" "yazi"; }
+    Mod+Q repeat=false          { spawn "foot"; }
+    Mod+E repeat=false          { spawn "foot" "yazi"; }
     Mod+Ctrl+E repeat=false     { spawn "nemo"; }
     Mod+Period repeat=false     { spawn "flatpak" "run" "com.tomjwatson.Emote"; }
-    Mod+L repeat=false          { spawn "gtklock"; }
+    Mod+L repeat=false          { spawn "swaylock"; }
     Mod+Return repeat=false     { spawn "~/.config/rofi/launcher/launcher.sh"; }
     Mod+Shift+E repeat=false    { spawn "~/.config/rofi/powermenu/powermenu.sh"; }
     Alt+Shift+9 repeat=false    { spawn "~/.config/waybar/restart_waybar.sh"; }

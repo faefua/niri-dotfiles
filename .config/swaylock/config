@@ -1,0 +1,44 @@
+ignore-empty-password
+font=Lilex Nerd Font
+font-size=25
+
+clock
+timestr=%I:%M %p
+datestr=%a, %b %d
+
+image=$HOME/Pictures/Wallpapers/MC_snowy_night.png
+
+fade-in=0.2
+
+effect-blur=15x2
+effect-scale=0.2
+
+disable-caps-lock-text
+
+indicator
+indicator-radius=90
+indicator-thickness=13
+
+key-hl-color=#c4a7e7
+
+separator-color=#00000000
+
+inside-color=#191724
+inside-clear-color=#191724
+inside-ver-color=#191724
+inside-wrong-color=#191724
+
+ring-color=#26233a
+ring-clear-color=#ebbcba
+ring-ver-color=#9ccfd8
+ring-wrong-color=#eb6f92
+
+line-color=#26233a
+line-clear-color=#ebbcba
+line-ver-color=#9ccfd8
+line-wrong-color=#eb6f92
+
+text-color=#e0def4
+text-clear-color=#e0def4
+text-ver-color=#e0def4
+text-wrong-color=#e0def4

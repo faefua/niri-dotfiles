@@ -28,10 +28,10 @@ export LS_COLORS=$(vivid generate rose-pine)
 
 ##############################################################################
 
-# fetch
-if [[ "$TERM" == "xterm-kitty" && -n "$KITTY_WINDOW_ID" && -z "$VSCODE_PID" && -z "$NVIM" ]]; then
-    fastfetch
-fi
+# # fetch
+# if [[ "$TERM" == "xterm-kitty" && -n "$KITTY_WINDOW_ID" && -z "$VSCODE_PID" && -z "$NVIM" ]]; then
+#     fastfetch
+# fi
 
 # starship
 eval "$(starship init bash)"

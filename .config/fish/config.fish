@@ -8,11 +8,11 @@ if status is-interactive
   # if test "$TERM" = "xterm-kitty" -a -n "$KITTY_WINDOW_ID" -a -z "$VSCODE_PID" -a -z "$NVIM"
   #   fastfetch
   # end
-  if test "$TERM" = "xterm-kitty" -o -n "$TMUX"
-    and test -z "$VSCODE_PID"
-    and test -z "$NVIM"
-    fastfetch
-  end
+  # if test "$TERM" = "xterm-kitty" -o -n "$TMUX"
+  #   and test -z "$VSCODE_PID"
+  #   and test -z "$NVIM"
+  #   fastfetch
+  # end
 
   # starship
   starship init fish | source

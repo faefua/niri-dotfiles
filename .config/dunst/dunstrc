@@ -41,7 +41,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     #offset = (20, 60)
-	  offset = (10, 10)
+	  offset = (20, 20)
     #offset = (20, 50)
 	  #offset = (20, 20)
 	  #offset = (40, 120)
@@ -111,11 +111,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    #frame_color = "#686868"
-    frame_color = "#191724"
+    frame_color = "#c4a7e7"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -361,7 +360,7 @@
 
 [urgency_critical]
 	  background = "#191724"
-    foreground = "#e0def4"
+    foreground = "#eb6f92"
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency

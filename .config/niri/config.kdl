@@ -105,7 +105,7 @@ spawn-at-startup "dunst"
 spawn-at-startup "sh" "/home/neifua/.config/swayidle/autolock.sh"
 spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "swayosd-server"
-spawn-sh-at-startup "/home/neifua/.config/battmon/battmon.sh"
+spawn-sh-at-startup "/home/neifua/.config/batterylevel/batterylevel.sh"
 
 prefer-no-csd
 
@@ -399,7 +399,6 @@ binds {
 
 debug {
   preview-render "screencast"
-  // disable-cursor-plane
-  // render-drm-device "/dev/dri/renderD128"
+  render-drm-device "/dev/dri/renderD128"
   wait-for-frame-completion-before-queueing
 }

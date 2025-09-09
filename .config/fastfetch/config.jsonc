@@ -6,10 +6,10 @@
     "padding": {
       "top": 2,
       "left": 0,
-      "right": 6,
+      "right": 5,
     },
     "color": {
-      "1": "#ffffff",
+      "1": "#e0def4",
     },
   },
   "display": {
@@ -33,21 +33,25 @@
       "key": "pkgs",
       "type": "packages",
       "format": "{all}",
-      "keyColor": "yellow",
+      "keyColor": "green",
+    },
+    {
+      "key": "term",
+      "type": "terminal",
+      "format": "{pretty-name}",
+      "keyColor": "magenta",
     },
     {
       "key": "sh",
       "type": "shell",
       "format": "{pretty-name}",
-      "keyColor": "green",
+      "keyColor": "yellow",
     },
     "break",
     {
       "type": "colors",
       "symbol": "square",
-      "keyColor": "magenta",
     },
-    "break",
     "break",
   ],
 }

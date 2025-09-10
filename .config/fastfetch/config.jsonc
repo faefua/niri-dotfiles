@@ -33,7 +33,7 @@
       "key": "pkgs",
       "type": "packages",
       "format": "{all}",
-      "keyColor": "green",
+      "keyColor": "yellow",
     },
     {
       "key": "term",
@@ -45,7 +45,7 @@
       "key": "sh",
       "type": "shell",
       "format": "{pretty-name}",
-      "keyColor": "yellow",
+      "keyColor": "cyan",
     },
     "break",
     {

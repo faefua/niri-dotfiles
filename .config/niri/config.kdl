@@ -105,7 +105,6 @@ spawn-at-startup "dunst"
 spawn-at-startup "sh" "/home/neifua/.config/swayidle/autolock.sh"
 spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "swayosd-server"
-spawn-sh-at-startup "/home/neifua/.config/batterylevel/batterylevel.sh"
 
 prefer-no-csd
 

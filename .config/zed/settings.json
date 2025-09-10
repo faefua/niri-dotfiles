@@ -1,0 +1,28 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "buffer_font_features": {
+    "calt": 1
+  },
+  "buffer_font_family": "JetBrains Mono NL",
+  "ui_font_family": "Fira Code",
+  "vim_mode": true,
+  "icon_theme": "Material Icon Theme",
+  "base_keymap": "VSCode",
+  "ui_font_size": 22.0,
+  "buffer_font_size": 23.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Rosé Pine"
+  },
+  "cursor_blink": true,
+  "cursor_shape": "block",
+  "soft_wrap": "editor_width"
+}

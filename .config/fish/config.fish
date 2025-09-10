@@ -5,11 +5,6 @@
 # Interactive shell setup
 if status is-interactive
 
-  # fetch
-  if test \( "$TERM" = "xterm-256color" -o -n "$TMUX" \) -a -z "$VSCODE_PID" -a -z "$NVIM"
-    fastfetch
-  end
-
   # starship
   starship init fish | source
 

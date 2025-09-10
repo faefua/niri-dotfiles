@@ -4,15 +4,11 @@
 
 # Interactive shell setup
 if status is-interactive
-    # fetch
-  # if test "$TERM" = "xterm-kitty" -a -n "$KITTY_WINDOW_ID" -a -z "$VSCODE_PID" -a -z "$NVIM"
-  #   fastfetch
-  # end
-  # if test "$TERM" = "xterm-kitty" -o -n "$TMUX"
-  #   and test -z "$VSCODE_PID"
-  #   and test -z "$NVIM"
-  #   fastfetch
-  # end
+
+  # fetch
+  if test \( "$TERM" = "xterm-256color" -o -n "$TMUX" \) -a -z "$VSCODE_PID" -a -z "$NVIM"
+    fastfetch
+  end
 
   # starship
   starship init fish | source

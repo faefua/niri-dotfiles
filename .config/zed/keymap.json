@@ -334,20 +334,79 @@
     }
   },
   {
-    "context": "(VimControl && !menu)",
-    "bindings": {
-      "ctrl-b": "vim::LineUp"
-    }
-  },
-  {
-    "context": "(VimControl && !menu)",
-    "bindings": {
-      "ctrl-y": null
-    }
-  },
-  {
     "bindings": {
       "ctrl-shift-w": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-left": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-right": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-left": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-right": null
+    }
+  },
+  {
+    "context": "(Editor && (showing_code_actions || showing_completions))",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "AgentDiff",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "(Editor && editor_agent_diff)",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "(AgentPanel && prompt_editor)",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "(AgentPanel && external_agent_thread)",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "PromptLibrary",
+    "bindings": {
+      "ctrl-n": null
     }
   }
 ]

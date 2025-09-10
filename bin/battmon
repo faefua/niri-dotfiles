@@ -8,8 +8,8 @@
 # ------------------------------------------------------------------
 
 # Define thresholds
-HIGH_THRESHOLD=97
-LOW_THRESHOLD=10
+HIGH_THRESHOLD=98
+LOW_THRESHOLD=15
 
 # Get the battery level
 LEVEL=$(acpi -b | awk -F', ' '{print $2}' | tr -d '%,')
@@ -20,12 +20,12 @@ if [[ "$LEVEL" =~ ^[0-9]+$ ]]; then
     # Check for high battery level
     if [[ "$LEVEL" =~ ^[0-9]+$ ]]; then
         if [ "$STATUS" = "Charging" ] && [ "$LEVEL" -ge "$HIGH_THRESHOLD" ]; then
-            DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/1000 notify-send -t 7000 "Battery Full" "Your battery is now fully charged."
+            DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/1000 notify-send -t 9000 "Battery Full" "Your battery is now fully charged."
         fi
     fi
 
     # Check for low battery level
     if [ "$LEVEL" -le "$LOW_THRESHOLD" ]; then
-        DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/1000 notify-send -t 7000 "Battery Low" "Your battery is critically low. Please plug in your charger!"
+        DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/1000 notify-send -t 9000 "Battery Low" "Your battery is critically low. Please plug in your charger!"
     fi
 fi

@@ -344,5 +344,10 @@
     "bindings": {
       "ctrl-y": null
     }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-w": null
+    }
   }
 ]

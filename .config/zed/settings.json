@@ -10,7 +10,7 @@
   "buffer_font_features": {
     "calt": 1
   },
-  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_family": "JetBrains Mono",
   "ui_font_family": "Fira Code",
   "vim_mode": true,
   "icon_theme": "Material Icon Theme",

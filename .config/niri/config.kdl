@@ -98,8 +98,6 @@ layout {
 }
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
-spawn-at-startup "waybar"
-spawn-at-startup "fcitx5"
 spawn-at-startup "swaybg" "-i" "/home/neifua/Pictures/Wallpapers/MC_snow.jpg"
 spawn-at-startup "dunst"
 spawn-at-startup "sh" "/home/neifua/.config/swayidle/autolock.sh"
@@ -154,7 +152,7 @@ hotkey-overlay {
 animations {
     // off
     slowdown 0.5
-}
+  }
 
 // window-rule {
 //   match app-id="foot"
@@ -245,12 +243,12 @@ binds {
     // XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
     // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
-    XF86AudioRaiseVolume    { spawn "sh" "-c" "exec swayosd-client --output-volume +2 --max-volume 150"; }
-    XF86AudioLowerVolume    { spawn "sh" "-c" "exec swayosd-client --output-volume -2 --max-volume 150"; }
-    XF86AudioMute           { spawn "sh" "-c" "exec swayosd-client --output-volume mute-toggle"; }
-    XF86AudioMicMute        { spawn "sh" "-c" "exec swayosd-client --input-volume mute-toggle"; }
-    XF86MonBrightnessUp     { spawn "sh" "-c" "exec swayosd-client --brightness +5"; }
-    XF86MonBrightnessDown   { spawn "sh" "-c" "exec swayosd-client --brightness -5"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume +2 --max-volume 150"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume -2 --max-volume 150"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn-sh "swayosd-client --input-volume mute-toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "swayosd-client --brightness +5"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness -5"; }
 
     Mod+W repeat=false { toggle-overview; }
 
@@ -343,15 +341,14 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
 
     Alt+Tab repeat=false { focus-workspace-previous; }
 
@@ -361,8 +358,8 @@ binds {
     Mod+Shift+BracketRight repeat=false { expel-window-from-column; }
 
     Mod+R repeat=false       { switch-preset-column-width; }
-    Mod+Shift+R repeat=false { switch-preset-window-height; }
-    Mod+Ctrl+R repeat=false  { reset-window-height; }
+    Mod+Ctrl+R repeat=false { switch-preset-window-height; }
+    Mod+Shift+R repeat=false  { reset-window-height; }
     Mod+X repeat=false       { maximize-column; }
     Mod+F repeat=false       { fullscreen-window; }
 
@@ -399,4 +396,5 @@ binds {
 debug {
   preview-render "screencast"
   wait-for-frame-completion-before-queueing
+  render-drm-device "/dev/dri/renderD128"
 }

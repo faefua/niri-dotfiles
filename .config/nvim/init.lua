@@ -45,6 +45,6 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
-vim.opt.guicursor = ""
+vim.opt.guicursor = "n-v-c-sm:block,i-ci:hor20,r-cr-o:block"
 vim.g.have_nerd_font = true
 vim.opt.scrolloff = 10

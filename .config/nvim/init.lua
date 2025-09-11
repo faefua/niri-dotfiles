@@ -36,15 +36,29 @@ vim.schedule(function()
   require "mappings"
 end)
 
+vim.g.have_nerd_font = true
+vim.opt.guicursor = "n-v-c-sm:block,i-ci:hor20,r-cr-o:block"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
 vim.opt.clipboard = "unnamedplus"
-vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.cursorline = true
-vim.opt.guicursor = "n-v-c-sm:block,i-ci:hor20,r-cr-o:block"
-vim.g.have_nerd_font = true
+vim.opt.hlsearch = true
+vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 10
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.cmd([[
+  highlight YankHighlight guibg=#c4a7e7 guifg=#191724
+]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("boat-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank({
+			higroup = "YankHighlight",
+		})
+	end,
+})

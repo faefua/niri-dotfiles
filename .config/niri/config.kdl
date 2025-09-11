@@ -104,6 +104,7 @@ spawn-at-startup "dunst"
 spawn-at-startup "sh" "/home/neifua/.config/swayidle/autolock.sh"
 spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
 spawn-at-startup "swayosd-server"
+spawn-at-startup "fcitx5"
 
 prefer-no-csd
 

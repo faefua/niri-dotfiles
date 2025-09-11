@@ -1,0 +1,13 @@
+[Unit]
+Description=Battery Monitor Notifications
+After=graphical.target
+
+[Service]
+ExecStart=/home/neifua/.local/bin/battmon.sh
+Restart=always
+RestartSec=60
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=%t
+
+[Install]
+WantedBy=default.target

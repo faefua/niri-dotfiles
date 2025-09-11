@@ -9,6 +9,8 @@ SETUVAR --export QT_QPA_PLATFORM:xcb
 SETUVAR --export SSH_AGENT_PID:\x1d
 SETUVAR --export SSH_AUTH_SOCK:\x1d
 SETUVAR --export VISUAL:nvim
+SETUVAR --export XCURSOR_SIZE:34
+SETUVAR --export XCURSOR_THEME:BreezeX\x2dRosePine\x2dLinux
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:908caa
 SETUVAR fish_color_cancel:e0def4

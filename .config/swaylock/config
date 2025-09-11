@@ -1,4 +1,5 @@
 ignore-empty-password
+daemonize
 font=Lilex Nerd Font
 font-size=25
 

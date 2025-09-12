@@ -41,6 +41,7 @@
 
   "niri/window": {
     "format": "{app_id} ~",
+    "tooltip": false,
   },
 
   "sway/workspaces": {
@@ -58,13 +59,13 @@
       "high-priority-named": ["1", "2"],
     },
     "disable-markup": false,
+    "tooltip": false,
   },
 
   "sway/window": {
     "format": "{app_id} ~",
     "max-length": 50,
-    "all-outputs": true,
-    "offscreen-css": true,
+    "tooltip": false,
   },
 
   "network": {

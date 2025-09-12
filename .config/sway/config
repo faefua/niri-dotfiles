@@ -39,6 +39,7 @@ exec swayidle -w \
   }
 
   seat seat0 xcursor_theme BreezeX-RosePine-Linux 34
+  seat seat0 hide_cursor when-typing enabled
 
 ### Key bindings
 # Start a terminal

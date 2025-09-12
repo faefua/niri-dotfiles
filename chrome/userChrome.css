@@ -2,11 +2,11 @@
 
 :root {
   --zen-colors-primary: var(--iris) !important;
-  --zen-primary-color: var(--text) !important;
+  --zen-primary-color: var(--base) !important;
   --zen-colors-secondary: var(--highlightMed) !important;
   --zen-colors-tertiary: var(--base) !important;
   --zen-colors-border: var(--base) !important;
-  /* --toolbarbutton-icon-fill: var(--overlay) !important; */
+  /* --toolbarbutton-icon-fill: var(--iris) !important; */
   --lwt-text-color: var(--text) !important;
   --toolbar-field-color: var(--text) !important;
   --tab-selected-textcolor: var(--iris) !important;

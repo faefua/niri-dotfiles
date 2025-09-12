@@ -29,3 +29,11 @@ map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = 
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
+
+-- Disable PageUp/PageDown keys
+vim.keymap.set("n", "<PageUp>", "<Nop>")
+vim.keymap.set("n", "<PageDown>", "<Nop>")
+vim.keymap.set("i", "<PageUp>", "<Nop>")
+vim.keymap.set("i", "<PageDown>", "<Nop>")
+vim.keymap.set("v", "<PageUp>", "<Nop>")
+vim.keymap.set("v", "<PageDown>", "<Nop>")

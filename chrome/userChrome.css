@@ -37,7 +37,7 @@
 }
 
 #urlbar-background {
-  background-color: var(--base) !important;
+  background-color: var(--overlay) !important;
 }
 
 .tab-background {

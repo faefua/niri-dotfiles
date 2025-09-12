@@ -4,20 +4,18 @@
   border-radius: 0px;
 }
 
-.modules-left {
-  background-color: #26233a;
-}
-
 .modules-right {
   background-color: #26233a;
 }
 
-window#waybar {
+window#waybar,
+#window {
   background-color: #191724;
   color: #e0def4;
 }
 
 #workspaces button {
+  background: #26233a;
   min-width: 1px;
   color: #e0def4;
   border-top: 3px solid #403d52;
@@ -26,6 +24,10 @@ window#waybar {
 #workspaces button.focused {
   color: #e0def4;
   border-top: 3px solid #c4a7e7;
+}
+
+#window {
+  margin-left: 15px;
 }
 
 #tray {

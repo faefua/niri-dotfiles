@@ -8,7 +8,12 @@
   "passthrough": false,
   "gtk-layer-shell": true,
 
-  "modules-left": ["niri/workspaces"],
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window",
+    "sway/workspaces",
+    "sway/window",
+  ],
   "modules-center": [],
   "modules-right": [
     "custom/space",
@@ -32,6 +37,34 @@
   "niri/workspaces": {
     "format": "{value}",
     "disable-markup": false,
+  },
+
+  "niri/window": {
+    "format": "{app_id} ~",
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{value}: {icon}",
+    "format-icons": {
+      "1": "󰈹",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "default": "󱥸",
+      "high-priority-named": ["1", "2"],
+    },
+    "disable-markup": false,
+  },
+
+  "sway/window": {
+    "format": "{app_id} ~",
+    "max-length": 50,
+    "all-outputs": true,
+    "offscreen-css": true,
   },
 
   "network": {

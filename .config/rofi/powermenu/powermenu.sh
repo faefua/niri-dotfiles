@@ -72,6 +72,8 @@ run_cmd() {
         elif [[ $1 == '--logout' ]]; then
             if [[ "$XDG_CURRENT_DESKTOP" == 'niri' ]]; then
                 niri msg action quit --skip-confirmation
+            elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
+                swaymsg exit
             fi
         fi
     else

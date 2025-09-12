@@ -6,7 +6,7 @@
   --zen-colors-secondary: var(--highlightMed) !important;
   --zen-colors-tertiary: var(--base) !important;
   --zen-colors-border: var(--base) !important;
-  --toolbarbutton-icon-fill: var(--text) !important;
+  --toolbarbutton-icon-fill: var(--iris) !important;
   --lwt-text-color: var(--text) !important;
   --toolbar-field-color: var(--text) !important;
   --tab-selected-textcolor: var(--iris) !important;
@@ -25,7 +25,7 @@
 }
 
 #permissions-granted-icon {
-  color: var(--foam) !important;
+  color: var(--iris) !important;
 }
 
 .sidebar-placesTree {
@@ -40,8 +40,27 @@
   background-color: var(--base) !important;
 }
 
+.tab-background {
+  position: relative;
+}
+
 .tab-background[selected=""] {
   background: var(--overlay) !important;
+}
+
+.tab-background[selected=""]::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 3px;
+  height: 100%;
+  background-color: var(--iris);
+}
+
+@media (-moz-bool-pref: "theme.better-active-tab.on-right") {
+  .tab-background[selected=""]::after {
+    right: 0px;
+  }
 }
 
 .content-shortcuts {
@@ -59,10 +78,12 @@
 
 toolbar .toolbarbutton-1 {
   &:not([disabled]) {
-
-    &:is([open], [checked])> :is(.toolbarbutton-icon,
-      .toolbarbutton-text,
-      .toolbarbutton-badge-stack) {
+    &:is([open], [checked])
+      > :is(
+        .toolbarbutton-icon,
+        .toolbarbutton-text,
+        .toolbarbutton-badge-stack
+      ) {
       fill: var(--iris);
     }
   }

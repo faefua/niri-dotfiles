@@ -9,6 +9,6 @@ return {
   },
 
   require("which-key").setup {
-    delay = 1,
+    delay = 60,
   },
 }

@@ -1,0 +1,132 @@
+{
+  "height": 27,
+
+  "layer": "bottom",
+  "position": "top",
+  "fixed-center": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
+  "modules-left": ["niri/workspaces", "sway/workspaces", "sway/window"],
+  "modules-center": [],
+  "modules-right": [
+    "custom/space",
+    "network",
+    "custom/split",
+    "cpu",
+    "custom/space",
+    "memory",
+    "custom/split",
+    "pulseaudio",
+    "custom/space",
+    "backlight",
+    "custom/space",
+    "battery",
+    "custom/split",
+    "clock",
+    "custom/space",
+    "tray",
+  ],
+
+  "niri/workspaces": {
+    "format": "{value}",
+    "disable-markup": false,
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{value}",
+    "disable-markup": false,
+    "tooltip": false,
+  },
+
+  "sway/window": {
+    "format": "{app_id} ~",
+    "max-length": 50,
+    "tooltip": false,
+  },
+
+  "network": {
+    "interval": 1,
+    "format": "WLA",
+    "format-ethernet": "ETH",
+    "format-disconnected": "N/A",
+    "on-click": "foot bash -c nmtui-connect",
+    "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
+    "tooltip": false,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "BLT {volume}%",
+    "format-muted": "MUTED",
+    "format-icons": {
+      "default": "VOL",
+    },
+    "states": {
+      "normal": 40,
+      "warning": 100,
+      "critical": 150,
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip": false,
+  },
+
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 10,
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "full": ["FULL"],
+      "charging": ["CHR"],
+      "discharging": ["BAT"],
+    },
+    "tooltip": false,
+  },
+
+  "backlight": {
+    "format": "BRT {percent}%",
+    "on-click-right": "brightnessctl set 5%-",
+    "on-click": "brightnessctl set +5%",
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "CPU {usage}%",
+    "tooltip": false,
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "RAM {percentage}%",
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:>%a, %b %d / %I:%M %p}",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
+
+  "custom/space": {
+    "format": "  ",
+    "tooltip": false,
+  },
+
+  "custom/split": {
+    "format": " | ",
+    "tooltip": false,
+  },
+}

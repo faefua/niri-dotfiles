@@ -1,42 +1,42 @@
 {
-  "height": 27,
-
   "layer": "bottom",
   "position": "top",
+  "mod": "dock",
   "fixed-center": false,
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
 
-  "modules-left": ["niri/workspaces", "sway/workspaces", "sway/window"],
-  "modules-center": [],
+  "modules-left": ["niri/workspaces", "sway/workspaces"],
+  "modules-center": ["niri/window", "sway/window"],
   "modules-right": [
-    "custom/space",
     "network",
-    "custom/split",
+    "bluetooth",
     "cpu",
-    "custom/space",
     "memory",
-    "custom/split",
     "pulseaudio",
-    "custom/space",
     "backlight",
-    "custom/space",
     "battery",
-    "custom/split",
-    "clock",
-    "custom/space",
     "tray",
+    "clock",
+    "custom/notification",
   ],
 
   "niri/workspaces": {
+    "all-outputs": false,
     "format": "{value}",
     "disable-markup": false,
   },
 
+  "niri/window": {
+    "format": "{app_id} ~",
+    "max-length": 20,
+    "tooltip": false,
+  },
+
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
+    "all-outputs": false,
     "format": "{value}",
     "disable-markup": false,
     "tooltip": false,
@@ -44,34 +44,48 @@
 
   "sway/window": {
     "format": "{app_id} ~",
-    "max-length": 50,
+    "max-length": 20,
     "tooltip": false,
   },
 
   "network": {
     "interval": 1,
-    "format": "WLA",
-    "format-ethernet": "ETH",
-    "format-disconnected": "N/A",
+    "format": "{icon}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "",
+    "format-disconnected": "󱘖",
+    "format-disabled": "󰤭",
     "on-click": "foot bash -c nmtui-connect",
     "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
     "tooltip": false,
   },
 
+  "bluetooth": {
+    "format-disabled": "",
+    "format-connected": "󰂱",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "tooltip": false,
+    "on-click": "foot bash -c bluetui",
+    "on-click-right": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; sleep 1; dev=$(bluetoothctl devices | grep -m1 Device | awk \"{print \\$2}\"); [ -n \"$dev\" ] && bluetoothctl connect $dev; fi'",
+  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "BLT {volume}%",
-    "format-muted": "MUTED",
+    "format-bluetooth": " {volume}%",
+    "format-muted": " {volume}%",
     "format-icons": {
-      "default": "VOL",
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", "", "", "", "", "", "", "", ""],
     },
     "states": {
       "normal": 40,
       "warning": 100,
       "critical": 150,
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
     "tooltip": false,
   },
 
@@ -83,50 +97,59 @@
     },
     "format": "{icon} {capacity}%",
     "format-icons": {
-      "full": ["FULL"],
-      "charging": ["CHR"],
-      "discharging": ["BAT"],
+      "full": [""],
+      "charging": [""],
+      "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     },
     "tooltip": false,
   },
 
   "backlight": {
-    "format": "BRT {percent}%",
-    "on-click-right": "brightnessctl set 5%-",
-    "on-click": "brightnessctl set +5%",
+    "format": "{icon} {percent}%",
+    // "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
     "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:>%I:%M %p      \n %a, %d %b %Y}",
+    "interval": 1,
+    "align": 1,
+    "justify": "right",
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
   },
 
   "cpu": {
     "interval": 1,
-    "format": "CPU {usage}%",
+    "format": " {usage}%",
     "tooltip": false,
   },
 
   "memory": {
     "interval": 1,
-    "format": "RAM {percentage}%",
+    "format": " {percentage}%",
     "tooltip": false,
   },
 
-  "clock": {
-    "format": "{:>%a, %b %d / %I:%M %p}",
-    "interval": 1,
+  "custom/notification": {
     "tooltip": false,
-  },
-
-  "tray": {
-    "icon-size": 20,
-    "spacing": 10,
-  },
-
-  "custom/space": {
-    "format": "  ",
-    "tooltip": false,
-  },
-
-  "custom/split": {
-    "format": " | ",
-    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#eb6f92'></span>",
+      "none": "<span foreground='#e0def4'></span>",
+      "dnd-notification": "<span foreground='#908caa'></span>",
+      "dnd-none": "<span foreground='#6e6a86'></span>",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": false,
   },
 }

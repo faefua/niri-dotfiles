@@ -8,10 +8,10 @@ exec_always --no-startup-id dbus-update-activation-environment --systemd --all
 exec_always --no-startup-id dunst
 exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id swayosd-server
-exec_always --no-startup-id $HOME/.config/sway/scripts/alternating_layouts.py
+# exec_always --no-startup-id $HOME/.config/sway/scripts/alternating_layouts.py
 
 ### Output configuration
-output * bg $HOME/Pictures/Wallpapers/MC_snow.jpg fill
+output * bg $HOME/Pictures/Wallpapers/MC_snowy_night.png fill
 
 ### Idle configuration
 exec swayidle -w \
@@ -164,7 +164,8 @@ gaps inner 12px
 gaps outer 0px
 
 # Borders
-default_border pixel 3px
+default_border none
+for_window [class=".*"] border pixel 3
 smart_borders on
 default_orientation vertical
 
@@ -172,6 +173,9 @@ default_orientation vertical
 for_window [window_role="GtkFileChooserDialog"] floating enable
 for_window [window_role="GtkFileChooserDialog"] resize set 800 700
 for_window [window_role="GtkFileChooserDialog"] move position center
+for_window [app_id="zen" title="Save Image"] floating enable
+for_window [app_id="zen" title="Save Image"] resize set 1000 800
+for_window [app_id="zen" title="Save Image"] move position center
 for_window [app_id="^launcher$"] floating enable, sticky enable
 for_window [class=".*"] split toggle
 # for_window [app_id=".*"] split toggle
@@ -199,7 +203,7 @@ set $highlightmed   #403d52
 set $highlighthigh  #524f67
 
 # target                 title     bg     text    indicator  border
-client.focused           $gold     $base  $text   $gold      $gold
+client.focused           $foam     $base  $text   $foam      $foam
 client.focused_inactive  $text     $base  $text   $subtle    $surface
 client.unfocused         $text     $base  $text   $overlay   $overlay
 client.urgent            $text     $base  $text   $love      $love

@@ -1,0 +1,77 @@
+* {
+  font-family: "UbuntuMono Nerd Font";
+  font-size: 18px;
+  border-radius: 0px;
+}
+
+.modules-right {
+  background-color: #191724;
+}
+
+window#waybar,
+#window {
+  background-color: #191724;
+  color: #e0def4;
+}
+
+#workspaces button {
+  background: #1f1d2e;
+  min-width: 1px;
+  color: #e0def4;
+  border-top: 3px solid #403d52;
+}
+
+#workspaces button.focused {
+  color: #e0def4;
+  border-top: 3px solid #9ccfd8;
+}
+
+#window {
+  margin-left: 15px;
+}
+
+#tray {
+  background-color: #191724;
+  color: #e0def4;
+  padding: 0px 16px;
+}
+
+#battery,
+#backlight,
+#pulseaudio,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#clock,
+#custom-split {
+  color: #e0def4;
+}
+
+#pulseaudio {
+  color: #e0def4;
+}
+
+#pulseaudio.warning,
+#battery.warning {
+  color: #ebbcba;
+}
+
+#pulseaudio.critical,
+#battery.critical,
+#battery.full {
+  color: #eb6f92;
+}
+
+#battery.charging {
+  color: #f6c177;
+}
+
+#bluetooth.off,
+#network.disabled,
+#network.disconnected,
+#pulseaudio.muted,
+#pulseaudio.muted.warning,
+#pulseaudio.muted.critical {
+  color: #6e6a86;
+}

@@ -11,7 +11,7 @@ exec_always --no-startup-id swayosd-server
 exec_always --no-startup-id $HOME/.config/sway/scripts/alternating_layouts.py
 
 ### Output configuration
-output * bg $HOME/Pictures/Wallpapers/MC_snowy_night.png fill
+output * bg $HOME/Pictures/Wallpapers/MC_snow.jpg fill
 
 ### Idle configuration
 exec swayidle -w \
@@ -199,7 +199,7 @@ set $highlightmed   #403d52
 set $highlighthigh  #524f67
 
 # target                 title     bg     text    indicator  border
-client.focused           $iris     $base  $text   $iris      $iris
+client.focused           $gold     $base  $text   $gold      $gold
 client.focused_inactive  $text     $base  $text   $subtle    $surface
 client.unfocused         $text     $base  $text   $overlay   $overlay
 client.urgent            $text     $base  $text   $love      $love

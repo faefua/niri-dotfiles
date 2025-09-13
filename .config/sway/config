@@ -15,7 +15,7 @@ output * bg $HOME/Pictures/Wallpapers/MC_snowy_night.png fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f' \
+         timeout 300 'aylock -f' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f'
 
@@ -138,19 +138,19 @@ bindsym $mod+Shift+Down    resize shrink height 5 px or 5 ppt
 bindsym $mod+Shift+Right   resize grow   width  5 px or 5 ppt
 
 # Utilities
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+# bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
+# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
+# bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+# bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-# bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +2 --max-volume 150
-# bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -2 --max-volume 150
-# bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
-# bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
-# bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +10
-# bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +2 --max-volume 150
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -2 --max-volume 150
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +10
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
 
 # Screenshot
 # bindsym $mod+Shift+s exec $HOME/.local/bin/screenshot.sh
